@@ -3,15 +3,9 @@ $(function ($) {
 
 
     function init() {
-        
-
-        getQsearch();
-        
-
         setHTML();
-
-        
-    }
+        getQsearch();
+   }
 
 
 
@@ -36,7 +30,7 @@ $(function ($) {
     }
 
     function getQsearch() {
-        $.get("http://api.pyg.ak48.xyz/api/public/v1/categories", function (ret) {
+        $.get("categories", function (ret) {
             console.log(ret);
             var data = ret.data;
             //调用模板引擎渲染数据

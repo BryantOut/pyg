@@ -42,7 +42,7 @@
                 <div class="mui-slider-group mui-slider-loop">
                     <div class="mui-slider-item mui-slider-item-duplicate">
                         <a href="#">
-                            <img src="http://p6lmyfkof.bkt.clouddn.com/banner4.png" />
+                            <img src="{{comments[comments.length-1].image_src}}" />
                         </a>
                     </div>
                     {{each comments}}
@@ -56,7 +56,7 @@
                     <!--支持循环，需要重复图片节点-->
                     <div class="mui-slider-item mui-slider-item-duplicate">
                         <a href="#">
-                            <img src="http://p6lmyfkof.bkt.clouddn.com/banner1.png" />
+                                <img src="{{comments[0].image_src}}" />
                         </a>
                     </div>
                 </div>
@@ -126,13 +126,13 @@
     <footer>
         <ul>
             <li>
-                <a href="javascript:;">
+                <a href="/index.html">
                     <span class="fa fa-home"></span>
                     <p>首页</p>
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="/pages/category.html">
                     <span class="fa fa-list-ul"></span>
                     <p>分类</p>
                 </a>

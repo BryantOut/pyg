@@ -2,16 +2,16 @@
 
 目录
 
-[1  项目背景]()
+[1  项目背景](#1--项目背景)
 
-[2  架构介绍]()
+[2  架构介绍](#2--架构介绍)
 
-[3  技术在线]()
+[3  技术在线](#3--技术在线)
 
-[4  技术详解]()
+[4  技术详解](#4--技术详解)
 
-- [4.1  mui轮播图]()
-- [4.2  代码优化之--拦截器]()
+- [4.1  mui轮播图](#41--mui轮播图)
+- [4.2  代码优化之--拦截器](#42--代码优化之--拦截器)
 - [4.3  模板引擎](https://github.com/BryantOut/bx#1--%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8)
 
 ## 1  项目背景
@@ -37,8 +37,19 @@
 ## 3  技术在线
 
 
+​	可能需要用得到的网站
 
-
+| 名称         | 网址                                          | 备注               |
+| ------------ | --------------------------------------------- | ------------------ |
+| zepto        | http://www.css88.com/doc/zeptojs_api/         | zepto的中文api     |
+| art-template | http://aui.github.io/art-template/zh-cn/docs/ | 模版引擎           |
+| fontawesome  | http://fontawesome.dashgame.com/              | 字体图标           |
+| mui官网      | http://dev.dcloud.net.cn/mui/                 | 官方网站           |
+| hello-mui    | http://www.dcloud.io/hellomui/                | 在线案例           |
+| mui-辅助类   | http://www.mubrand.com/?post=19               | mui的辅助类        |
+| 品优购在线   | http://pyg.ak48.xyz/                          | 上课参照的案例     |
+| 上课源代码   | https://gitee.com/ukSir/gz20-pyg.git          | 上课的源代码的地址 |
+| api接口文档  | [api.md](api.md)                              |                    |
 
 ## 4  技术详解
 

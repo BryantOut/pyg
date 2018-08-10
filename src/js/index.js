@@ -50,7 +50,7 @@ function getCatitems() {
 
 function getGoodslist() {
     $.get("home/goodslist", function (ret) {
-        // console.log(ret);
+        console.log(ret);
         var data = ret.data;
         //调用模板引擎渲染数据
         var context = {

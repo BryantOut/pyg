@@ -1,5 +1,4 @@
 $(function () {
-
     var BaseUrl=" http://api.pyg.ak48.xyz/api/public/v1/";
     // 修改接口的使用方式
     // 拦截器
@@ -10,6 +9,5 @@ $(function () {
     // http://api.pyg.ak48.xyz/api/public/v1/  +   home/swiperdata
     $.ajaxSettings.beforeSend=function (xhr,obj) {
       obj.url=BaseUrl+ obj.url;
-      // console.log(obj.url);
     }
 })

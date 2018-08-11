@@ -11,9 +11,14 @@
             overflow: hidden;
             li {
                 height: .4rem;
+                line-height: .4rem;
                 a {
                     color: #000;
                 }
+            }
+            .active {
+                background-color: #fff;
+                border-left:2px solid #0094FF;      
             }
         }
     }
@@ -21,7 +26,40 @@
     /* rightCon部分开始 */
     .rightCon {
         flex: 1;
-        background-color: #0094FF;
+        background-color: #fff;
+        .goods_group {
+            .goods_title {
+                display: flex;
+                span:nth-child(1) {
+                    padding: 0.05rem;
+                    color: #0094FF;
+                }
+                span:nth-child(2) {
+                    flex: 1;
+                    height: 1px;
+                    background-color: #000;  
+                    // 控制子项在侧轴上的对齐方式 
+                    align-self: center;         
+                }
+            }
+            ul {
+                display: flex;
+                flex-wrap:wrap;
+                li {
+                    width: 33.33333%;
+                    a {
+                        img {
+                            width: 60%;
+                            margin: 0 auto;
+                        }
+                        p {
+                            color: #000;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
     }
     /* rightCon部分结束 */
 }

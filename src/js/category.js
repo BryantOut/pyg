@@ -1,11 +1,16 @@
 $(function ($) {
+    // 左侧的滚动条
+    var LeftScroll;
+    // 服务器返回回来的数据
+    var Datas;
     init();
 
 
     function init() {
         setHTML();
         getQsearch();
-   }
+        leftListEvenListener();
+    }
 
 
 
@@ -32,17 +37,51 @@ $(function ($) {
     function getQsearch() {
         $.get("categories", function (ret) {
             console.log(ret);
-            var data = ret.data;
+            Datas = ret.data;
             //调用模板引擎渲染数据
             var context = {
-                comments: data
+                comments: Datas
             }
             //借助模板引擎的api
             var html = template('leftNavTmpl', context);
             //将渲染结果的html设置到默认元素的innerHTML中
             $(".leftNav ul").html(html);
 
-            var myScroll = new IScroll('.leftNav');
+            LeftScroll = new IScroll('.leftNav');
+
+
+            renderRightCon(0);
+        });
+    }
+
+    function renderRightCon(index) {
+        //渲染右侧内容
+        var context1 = {
+            comments: Datas[index]
+        }
+        //借助模板引擎的api
+        var html2 = template('rightConTmpl', context1);
+        //将渲染结果的html设置到默认元素的innerHTML中
+        $(".bigBox").html(html2);
+
+        var imgLength = $(".bigBox img").length;
+        $(".bigBox img").on("load", function () {
+            imgLength--;
+            if (imgLength == 0) {
+                new IScroll('.rightCon');
+            }
+        })
+    }
+
+    function leftListEvenListener() {
+        $(".leftNav").on("tap", "li", function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            //获取当前li的索引
+            var index = $(this).data("index");
+            // 往上滚动置顶
+            LeftScroll.scrollToElement(this);
+            //并调用函数重新渲染右边的内容
+            renderRightCon(index);
         });
     }
 })

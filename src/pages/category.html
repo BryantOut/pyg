@@ -28,16 +28,49 @@
                 <!-- 准备一个模板引擎 -->
                 <script type="text/x-art-template" id="leftNavTmpl">
                     {{each comments}}
-                    <li>
+                    {{if $index==0}}
+                    <li data-index={{$index}} class="active">
                         <a href="javascript:;">
                             {{$value.cat_name}}
                         </a>
                     </li>
+                    {{/if}}
+                    {{if $index!=0}}
+                    <li data-index={{$index}}>
+                        <a href="javascript:;">
+                            {{$value.cat_name}}
+                        </a>
+                    </li>
+                    {{/if}}
                     {{/each}}
                 </script>
             </ul>
         </div>
-        <div class="rightCon"></div>
+        <div class="rightCon">
+            <div class="bigBox">
+                <!-- 准备一个模板引擎 -->
+                <script type="text/x-art-template" id="rightConTmpl">
+                    {{each comments.children}}
+                    <div class="goods_group">
+                        <div class="goods_title">
+                            <span>{{$value.cat_name}}</span>
+                            <span></span>
+                        </div>
+                        <ul>
+                            {{each $value.children $value2}}
+                            <li>
+                                <a href="/pages/good_list.html?cid={{$value2.cat_id}}">
+                                    <img src={{$imports.url}}{{$value2.cat_icon}} alt="">
+                                    <p>{{$value2.cat_name}}</p>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </script>
+            </div>
+        </div>
     </div>
     <!-- 主体部分结束 -->
     <!-- footer部分开始 -->

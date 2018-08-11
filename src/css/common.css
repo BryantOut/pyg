@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body,
 div,
 ul,
@@ -5,14 +6,16 @@ li,
 a,
 p,
 i,
-em {
+em,
+span {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-i, em {
+i,
+em {
   font-style: normal;
 }
 
@@ -26,7 +29,8 @@ body {
   height: 100%;
 }
 
-ul {
+ul,
+li {
   list-style: none;
 }
 
@@ -89,5 +93,36 @@ footer ul li a .fa {
 
 footer ul li a p {
   color: #000;
+}
+
+/* 加载图标及遮罩层 */
+.wait::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: .8;
+  z-index: 1000;
+}
+
+.wait::after {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f021";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 60px;
+  margin-left: -30px;
+  margin-top: -30px;
+  color: hotpink;
 }
 /*# sourceMappingURL=common.css.map */

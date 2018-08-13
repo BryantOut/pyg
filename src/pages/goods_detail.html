@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- ./  相对路径
+    /   绝对路径
+    以后我们的网站，都是通过服务器来打开
+    网页，写了根路径
+    1、服务器形式代开 正确
+        a vscode  自带服务器
+        b 结合phpstudy 来使用
+    2、双击打开html页面 错误 => 根路径就定位了 c:
+    3、通过接口去返回一些数据
+        /1.jpg
+        ./1.jpg -->
+    <link rel="stylesheet" href="/lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
+    <!-- 引入公共样式 -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/goods_detail.css">
+</head>
+
+<body>
+    <!-- 头部部分开始 -->
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">商品详情</h1>
+    </header>
+    <!-- 头部部分结束-->
+    <!-- 主体部分开始 -->
+    <div class="view">
+        <!-- 轮播图部分开始 -->
+        <div class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!--支持循环，需要重复图片节点-->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_1_400x400.jpg"
+                        />
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_5_400x400.jpg"
+                        />
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_2_400x400.jpg"
+                        />
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_2_400x400.jpg"
+                        />
+                    </a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_1_400x400.jpg"
+                        />
+                    </a>
+                </div>
+                <!--支持循环，需要重复图片节点-->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_5_400x400.jpg"
+                        />
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+            </div>
+        </div>
+        <!-- 轮播图部分结束 -->
+
+        <div class="goods_name">
+            漫倪芳 2017【优衣库599同款】新款轻薄羽绒服女中长款连帽修身显瘦羽绒服女 冬装女士大码女装保暖羽绒服外套
+        </div>
+        <div class="goods_price">￥299</div>
+        <div class="goods_attr">
+            <ul>
+                <li>
+                    <div class="tag">已选</div>
+                    <div class="tag_value">白色</div>
+                </li>
+                <li>
+                    <div class="tag">已选</div>
+                    <div class="tag_value">白色</div>
+                </li>
+                <li>
+                    <div class="tag">已选</div>
+                    <div class="tag_value">白色</div>
+                </li>
+                <li>
+                    <div class="tag">已选</div>
+                    <div class="tag_value">白色</div>
+                </li>
+            </ul>
+        </div>
+        <div class="info_title">
+            <div id="segmentedControl" class="mui-segmented-control">
+                <a class="mui-control-item mui-active" href="#item1">图文详细</a>
+                <a class="mui-control-item" href="#item2">规格参数</a>
+            </div>
+        </div>
+        <div class="info_content">
+            <div id="item1" class="mui-control-content mui-active">1</div>
+            <div id="item2" class="mui-control-content">
+                <ul>
+                    <li>
+                        <div class="attrs_title">主观参数</div>
+                        <div class="attrs_content">
+                            <div class="tag">品牌</div>
+                            <div class="tag_value">champion</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 主体部分结束 -->
+        <!-- footer部分开始 -->
+        <footer>
+            <ul>
+                <li>
+                    <a href="/goods_detail.html">
+                        <span class="fa fa-home"></span>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/category.html">
+                        <span class="fa fa-list-ul"></span>
+                        <p>分类</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="fa fa-shopping-cart"></span>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="fa fa-user"></span>
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <!-- footer部分结束 -->
+        <script src="/lib/mui/js/mui.min.js"></script>
+        <script src="/lib/arttemplate/template-web.js"></script>
+        <script src="/lib/zepto/zepto.js"></script>
+        <script src="/js/common.js"></script>
+        <script src="/js/goods_detail.js"></script>
+</body>
+
+</html>

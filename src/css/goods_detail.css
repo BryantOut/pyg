@@ -1,0 +1,83 @@
+header {
+  padding: 0 10px;
+}
+
+header .mui-title {
+  color: #0062cc;
+}
+
+.view .goods_name {
+  padding: 0 .08rem;
+  font-size: .16rem;
+}
+
+.view .goods_price {
+  padding: 0 .08rem;
+  font-size: .2rem;
+  color: orange;
+}
+
+.view .goods_attr {
+  padding: 0 .08rem;
+  margin-top: .08rem;
+}
+
+.view .goods_attr ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: .01rem solid #ccc;
+  padding: .04rem;
+  font-size: .12rem;
+}
+
+.view .goods_attr ul li .tag {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #999;
+}
+
+.view .goods_attr ul li .tag_value {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.view .info_title {
+  padding: 0 .08rem;
+  margin-top: .1rem;
+}
+
+.view .info_content {
+  padding: 0 .08rem;
+}
+
+.view .info_content ul li .attrs_title {
+  font-size: .14rem;
+  font-weight: bold;
+  border-bottom: 1px solid #999;
+  padding: .08rem 0;
+}
+
+.view .info_content ul li .attrs_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: .12rem;
+  padding: .04rem 0;
+}
+
+.view .info_content ul li .attrs_content .tag {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #999;
+}
+
+.view .info_content ul li .attrs_content .tag_value {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+/*# sourceMappingURL=goods_detail.css.map */

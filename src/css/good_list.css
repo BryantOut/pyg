@@ -1,0 +1,93 @@
+@charset "UTF-8";
+body {
+  padding-top: 90px;
+}
+
+.search_header {
+  height: 45px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0094FF;
+}
+
+.sortNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 45px;
+  text-align: center;
+  font-size: 20px;
+  position: fixed;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+
+.sortNav a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  line-height: 45px;
+  font-size: 18px;
+}
+
+/* view主体部分开始 */
+.view {
+  position: relative;
+  overflow: hidden;
+}
+
+.view ul li {
+  background-color: #fff;
+  margin: 5px;
+  padding: 20px 0;
+}
+
+.view ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.view ul li a .pic {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 50%;
+  height: 50%;
+}
+
+.view ul li a .pic img {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.view ul li a .info {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  overflow: hidden;
+}
+
+.view ul li a .info .good_title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 20px;
+}
+
+.view ul li a .info .good_price {
+  color: red;
+}
+
+.view ul li a i {
+  color: #ccc;
+  font-size: 20xpx;
+  margin-top: 22px;
+  margin-right: 4px;
+}
+
+/* view主体部分结束 */
+/*# sourceMappingURL=good_list.css.map */

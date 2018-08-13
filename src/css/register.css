@@ -1,0 +1,45 @@
+header {
+  padding: 0 10px;
+}
+
+header .mui-title {
+  color: #0062cc;
+}
+
+.view {
+  padding: 8px 8px 0;
+}
+
+.view form input {
+  font-size: 12px;
+}
+
+.view form .code {
+  position: relative;
+}
+
+.view form .code .getCode {
+  position: absolute;
+  right: 4px;
+  width: auto;
+  height: auto;
+  line-height: 1;
+  font-size: 12px;
+  padding: 4px;
+  top: 10px;
+}
+
+.view .btn_tool {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.view .btn_tool button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 12px 0;
+}
+/*# sourceMappingURL=register.css.map */

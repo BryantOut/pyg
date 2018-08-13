@@ -13,6 +13,7 @@
 - [4.1  mui轮播图](#41--mui轮播图)
 - [4.2  代码优化之--拦截器](#42--代码优化之--拦截器)
 - [4.3  模板引擎](https://github.com/BryantOut/bx#1--%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8)
+- [4.4  rem]()
 
 ## 1  项目背景
 
@@ -127,3 +128,134 @@ $(function () {
 ### 4.4  rem
 
 [rem有关笔记]()
+
+### 4.5  mui上拉刷新下拉加载
+
+> 官方网站
+
+[mui官方](http://dev.dcloud.net.cn/mui/)
+
+[hello-mui](http://www.dcloud.io/hellomui/)
+
+#### 4.5.1  简单实现
+
+**html代码**
+
+```html
+//  lt_view 为下拉-上拉的容器  里面必须加一层嵌套 div   
+<div class="lt_view">
+  //2 div 为额外添加的嵌套
+  <div>
+    //3 .lt_content 为存放数据的容器
+    <div class="lt_content">
+      数据
+    </div>
+  </div>
+</div>
+```
+
+**初始化javascript**
+
+```js
+mui.init({
+  pullRefresh: {
+    container: "容器选择器",
+    down: {
+      auto: true,
+      //  触发下拉刷新时自动触发
+      callback: function () {
+      }
+    },
+    up:{
+      //  触发上拉刷新时自动触发
+      callback:function () {
+      }
+    }
+  }
+});
+```
+
+#### 4.5.2  api
+
+```js
+// 结束下拉刷新
+mui('.lt_view').pullRefresh().endPulldownToRefresh();
+
+// 结束上拉加载更多 如果没有数据 传入 true 否则 传入 false
+mui('.lt_view').pullRefresh().endPullupToRefresh();
+
+// 重置 组件
+mui('.lt_view').pullRefresh().refresh(true);
+```
+
+#### 4.5.2  可能会在遇到的bug
+
+![](./mdImg/下拉刷新.png)
+
+> 因为渲染模板的时候是`parent.append(html`,所以每次下拉刷新的时候，要先清空，并将当前页面重新设置为第一页。
+
+## 4.6  处理文本溢出
+
+### 4.6.1  处理方法一：用省略号替换溢出的内容
+
+![](./mdImg/处理文本溢出1.png)
+
+![](./mdImg/处理文本溢出2.png)
+
+## 4.7  根据url上的key来取值
+
+```js
+getUrl: function (name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) return decodeURI(r[2]);
+  return null;
+},
+```
+
+
+
+## 4.8  模板引擎中的变量
+
+[笔记链接]()
+
+## 4.9  关于拦截器
+
+>  描述：在每一次发送请求之前，对请求做一些处理
+
+**应用一**：发送ajax请求之前，提前对接口的url进行处理
+
+```js
+$(function () {
+    var BaseUrl=" http://api.pyg.ak48.xyz/";
+    template.defaults.imports.url = BaseUrl;
+    // 修改接口的使用方式
+    // 拦截器
+    // 在每一次发送请求 之前对请求做一些处理 
+    // 发送请求之前,提前对于 接口的url进行处理 
+    // var oobj={};
+    // $.ajax(oobj);
+    // http://api.pyg.ak48.xyz/api/public/v1/  +   home/swiperdata
+    
+    //发送请求的个数
+    var ajaxNums = 0;
+
+    $.ajaxSettings.beforeSend=function (xhr,obj) {
+      obj.url=BaseUrl+"api/public/v1/"+obj.url;
+      ajaxNums++;
+      $("body").addClass("wait");
+    }
+
+    //获得返回值之后调用一次
+    $.ajaxSettings.complete = function () {
+      //同时发送了3个请求，要求=>最后一个请求，再去隐藏！！
+      //否则第一个请求回来就做隐藏，可能还会有其他请求还没有回来
+      ajaxNums--;
+      if (ajaxNums==0) {
+        //最后一个请求了！！！
+        $("body").removeClass("wait");
+      }
+    }
+})
+```
+

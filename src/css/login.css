@@ -1,0 +1,24 @@
+header {
+  padding: 0 10px;
+}
+
+header .mui-title {
+  color: #0062cc;
+}
+
+.view {
+  padding: 8px 8px 0;
+}
+
+.view .btn_tool {
+  margin-top: 20px;
+}
+
+.view .btn_tool .mui-btn {
+  width: 100%;
+}
+
+.view .btn_tool a {
+  margin-top: 8px;
+}
+/*# sourceMappingURL=login.css.map */

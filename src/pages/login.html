@@ -21,30 +21,39 @@
     <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
     <!-- 引入公共样式 -->
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/good_list.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-    <div class="search_header"></div>
-    <div class="sortNav">
-        <a href="javascript:;">综合</a>
-        <a href="javascript:;">销量</a>
-        <a href="javascript:;">促销</a>
-    </div>
-    <!-- view主体部分开始 -->
+    <!-- 头部部分开始 -->
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">登录</h1>
+    </header>
+    <!-- 头部部分结束-->
+    <!-- 主体部分开始 -->
     <div class="view">
-        <div>
-            <ul>
-
-            </ul>
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>手机号码</label>
+                <input type="text" class="mui-input-clear" placeholder="请输入手机号码" name="mobile" value="13533223834">
+            </div>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="mui-input-password" placeholder="请输入密码" name="pwd">
+            </div>
+        </form>
+        <div class="btn_tool">
+            <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined btn_login">登录</button>
+            <a href="/pages/register.html" class="mui-btn mui-btn-primary btn_register">注册</a>
         </div>
     </div>
-    <!-- view主体部分结束 -->
+    <!-- 主体部分结束 -->
     <!-- footer部分开始 -->
     <footer>
         <ul>
             <li>
-                <a href="/index.html">
+                <a href="/login.html">
                     <span class="fa fa-home"></span>
                     <p>首页</p>
                 </a>
@@ -70,30 +79,11 @@
         </ul>
     </footer>
     <!-- footer部分结束 -->
-
-    <!-- 准备一个模板引擎 -->
-    <script type="text/x-art-template" id="goodListTmpl">
-        {{each comments}}
-        <li>
-            <a href="/pages/goods_detail.html?goods_id={{$value.goods_id}}">
-                <div class="pic">
-                    <img src="{{$value.goods_small_logo}}" alt="">
-                </div>
-                <div class="info">
-                    <div class="good_title">{{$value.goods_name}}</div>
-                    <div class="good_price">￥{{$value.goods_price}}</div>
-                </div>
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-        </li>
-        {{/each}}  
-    </script>
-
     <script src="/lib/mui/js/mui.min.js"></script>
     <script src="/lib/arttemplate/template-web.js"></script>
     <script src="/lib/zepto/zepto.js"></script>
     <script src="/js/common.js"></script>
-    <script src="/js/good_list.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 
 </html>

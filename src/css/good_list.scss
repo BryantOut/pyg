@@ -1,0 +1,76 @@
+body {
+    padding-top:90px;
+}
+.search_header {
+    height: 45px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0094FF;
+}
+
+.sortNav {
+    display: flex;
+    top: 45px;
+    text-align: center;
+    font-size: 20px;
+    position: fixed;
+    width: 100%;
+    background-color: #f7f7f7;
+    a {
+        flex: 1;
+        text-align: center;
+        line-height: 45px;
+        font-size: 18px;
+    }
+}
+
+/* view主体部分开始 */
+
+.view {
+    position: relative;
+    overflow: hidden;
+    ul {
+        li {
+            background-color: #fff;
+            margin: 5px;
+            padding: 20px 0;
+            a {
+                display: flex;  
+                .pic {
+                    flex: 1;
+                    width: 50%;
+                    height: 50%;
+                    img {
+                        width: 50%;
+                        margin: 0 auto;
+                    }
+                }
+                .info {
+                    flex: 2;
+                    overflow: hidden;
+                    .good_title {
+                        overflow: hidden;
+                        // 不要换行 flex布局当宽度超出父元素的宽度之后 会发生挤压
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        margin-bottom: 20px;  
+                    }
+                    .good_price {
+                        color: red;
+                        
+                    }
+                }
+                i {
+                    color: #ccc;  
+                    font-size: 20xpx; 
+                    margin-top: 22px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
+
+/* view主体部分结束 */

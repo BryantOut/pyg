@@ -65,3 +65,36 @@ header {
         }
     }
 }
+
+footer {
+    ul {
+        text-align: center;
+        li {
+            border-right: 1px solid #ccc;
+        }
+        li:last-child {
+            border-right: none;
+        }
+        li:nth-child(3) {
+            
+            line-height: 40px;
+            background-color:rgb(255, 170, 0);
+            a {
+                p {
+                    color: #fff;
+                }
+                
+            }
+        }
+        li:nth-child(4) {
+            line-height: 40px;
+            background-color:rgb(255, 102, 0);
+            a {
+                p {
+                    color: #fff;
+                }
+                
+            }
+        }
+    }
+}

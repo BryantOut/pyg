@@ -80,4 +80,34 @@ header .mui-title {
       -ms-flex: 2;
           flex: 2;
 }
+
+footer ul {
+  text-align: center;
+}
+
+footer ul li {
+  border-right: 1px solid #ccc;
+}
+
+footer ul li:last-child {
+  border-right: none;
+}
+
+footer ul li:nth-child(3) {
+  line-height: 40px;
+  background-color: #ffaa00;
+}
+
+footer ul li:nth-child(3) a p {
+  color: #fff;
+}
+
+footer ul li:nth-child(4) {
+  line-height: 40px;
+  background-color: #ff6600;
+}
+
+footer ul li:nth-child(4) a p {
+  color: #fff;
+}
 /*# sourceMappingURL=goods_detail.css.map */

@@ -77,7 +77,7 @@
         <li>
             <a href="/pages/goods_detail.html?goods_id={{$value.goods_id}}">
                 <div class="pic">
-                    <img src="{{$value.goods_small_logo}}" alt="">
+                    <img alt="" src="/img/lazyload.gif" data-original="{{$value.goods_small_logo}}" class="test-lazyload">
                 </div>
                 <div class="info">
                     <div class="good_title">{{$value.goods_name}}</div>
@@ -92,6 +92,7 @@
     <script src="/lib/mui/js/mui.min.js"></script>
     <script src="/lib/arttemplate/template-web.js"></script>
     <script src="/lib/zepto/zepto.js"></script>
+    <script src="/lib/lazyload.js"></script>
     <script src="/js/common.js"></script>
     <script src="/js/good_list.js"></script>
 </body>

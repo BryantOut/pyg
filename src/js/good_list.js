@@ -89,6 +89,11 @@ $(function ($) {
             //将渲染结果的html设置到默认元素的innerHTML中
             $(".view ul").append(html);
 
+            $('.test-lazyload').picLazyLoad({
+                threshold: 100,
+                placeholder: '/img/lazyload.gif'
+            });
+
             callback && callback();
         });
     }

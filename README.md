@@ -8,12 +8,30 @@
 
 [3  技术在线](#3--技术在线)
 
-[4  技术详解](#4--技术详解)
+**重点技术**
 
 - [4.1  mui轮播图](#41--mui轮播图)
 - [4.2  代码优化之--拦截器](#42--代码优化之--拦截器)
+- [4.7  根据url上的key来取值]()
+- [5.0  拓展zepto]()
+- [5.5  解决MUI阻止a标签默认跳转事件]()
+- [5.8  Zepto picLazyLoad Plugin，图片懒加载的Zepto插件]()
+
+[4  技术详解](#4--技术详解)
+
 - [4.3  模板引擎](https://github.com/BryantOut/bx#1--%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8)
 - [4.4  rem]()
+- [4.5  mui上拉刷新下拉加载]()
+- [4.6  处理文本溢出]()
+- [4.7  根据url上的key来取值]()
+- [4.8  模板引擎中的变量]()
+- [4.9  关于拦截器]()
+- [5.1  重置宽度（小知识）]()
+- [5.2  在js中打断点]()
+- [5.3  链式编程（小复习）]()
+- [5.4  表单标签选择]()
+- [5.6  简单实现倒计时]()
+- [5.7  根据指定字符截取字符串成数组]()
 
 ## 1  项目背景
 
@@ -52,13 +70,13 @@
 | 上课源代码        | https://gitee.com/ukSir/gz20-pyg.git     | 上课的源代码的地址   |
 | api接口文档      | [api.md](api.md)                         |             |
 
+> mui是做移动端的，bootstrap是做响应式的
+
 ## 4  技术详解
 
 ### 4.1  mui轮播图
 
 > 轮播图如果是动态生成，则需要在渲染完毕之后，手动执行初始化。
-
-
 
 **html代码**
 
@@ -184,25 +202,31 @@ mui('.lt_view').pullRefresh().endPulldownToRefresh();
 // 结束上拉加载更多 如果没有数据 传入 true 否则 传入 false
 mui('.lt_view').pullRefresh().endPullupToRefresh();
 
-// 重置 组件
+// 重置 组件--为了让上拉加载和上拉刷新反复切换
 mui('.lt_view').pullRefresh().refresh(true);
 ```
 
 #### 4.5.2  可能会在遇到的bug
 
+**1**
+
 ![](./mdImg/下拉刷新.png)
 
 > 因为渲染模板的时候是`parent.append(html`,所以每次下拉刷新的时候，要先清空，并将当前页面重新设置为第一页。
 
-## 4.6  处理文本溢出
+**2**
 
-### 4.6.1  处理方法一：用省略号替换溢出的内容
+> 上拉加载和下拉加载的容器一定要: `overflow:hidden` 否则会出现上拉的时候，下面的空间越来越大
+
+### 4.6  处理文本溢出
+
+#### 4.6.1  处理方法一：用省略号替换溢出的内容
 
 ![](./mdImg/处理文本溢出1.png)
 
 ![](./mdImg/处理文本溢出2.png)
 
-## 4.7  根据url上的key来取值
+### 4.7  根据url上的key来取值
 
 ```js
 getUrl: function (name) {
@@ -215,11 +239,11 @@ getUrl: function (name) {
 
 
 
-## 4.8  模板引擎中的变量
+### 4.8  模板引擎中的变量
 
 [笔记链接]()
 
-## 4.9  关于拦截器
+### 4.9  关于拦截器
 
 >  描述：在每一次发送请求之前，对请求做一些处理
 
@@ -259,3 +283,127 @@ $(function () {
 })
 ```
 
+### 5.0  拓展zepto
+
+> 给$对象添加自定义的属性或者方法
+
+```js
+ $.extend($, {
+   getUrlValue:function (name) {
+     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+     var r = window.location.search.substr(1).match(reg);
+     if (r != null) return decodeURI(r[2]);
+     return null;
+   },
+   checkPhone: function (phone) {
+     if (!(/^1[34578]\d{9}$/.test(phone))) {
+       return false;
+     } else {
+       return true;
+     }
+   },
+   checkEmail: function (myemail) {　　
+     var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+     if (myReg.test(myemail)) {　　　　
+       return true;　　
+     } else {　　　　
+       return false;
+     }
+   }
+ });
+```
+
+### 5.1  重置宽度（小知识）
+
+`width:auto`
+
+### 5.2  在js中打断点
+
+```js
+function init () {
+  XXXXXX
+  debugger
+}
+```
+
+### 5.3  链式编程（小复习）
+
+```js
+ $(".getCode").removeAttr("disabled").text("获取验证码");
+```
+
+### 5.4  表单标签选择
+
+```js
+ var mobile_txt = $("[name='mobile']").val().trim();
+ var pwd_txt = $("[name='pwd']").val().trim();
+```
+
+### 5.5  解决MUI阻止a标签默认跳转事件
+
+![](./mdImg/mui默认阻止a标签跳转.jpg)
+
+```js
+function liOnTap () {
+  $(".view").on("tap","a",function () {
+    var href = this.href;
+    // console.log(href);
+    location.href = href;
+  })
+}
+```
+
+> 注册委托事件，绑定tap事件
+
+### 5.6  简单实现倒计时
+
+![](./mdImg/倒计时.png)
+
+```js
+//为获取验证码按钮注册点击事件
+$(".getCode").on("tap", function () {
+  //获取手机号码
+  var inputPhoneNum = $("[name='mobile']").val().trim();
+  $.post("users/get_reg_code", {
+    mobile: inputPhoneNum
+  }, function (ret) {
+    console.log(ret);
+    if (ret.meta.status != 200) {
+      var alertInfo = ret.meta.msg;
+      mui.toast(alertInfo, {
+        duration: 'long',
+        type: 'div'
+      })
+    }
+
+    //为按钮添加禁用于激活事件
+    $(".getCode").attr("disabled", "disabled");
+    //自定义几秒后重新发送
+    var times = 60;
+    $(".getCode").text(times + "后重新发送");
+    //设置定时器
+    var timeId = setInterval(function () {
+      if (times <= 1) {
+        clearInterval(timeId);
+        $(".getCode").removeAttr("disabled");
+        $(".getCode").text("获取验证码");
+        return;
+      }
+      times--;
+      $(".getCode").text(times + "后重新发送");
+    }, 1000);
+  });
+});
+```
+
+### 5.7  根据指定字符截取字符串成数组
+
+`$value.attr_name.split("-")[0]`
+
+![](./mdImg/splite.png)
+
+### 5.8  Zepto picLazyLoad Plugin，图片懒加载的Zepto插件
+
+[文档链接](https://www.cnblogs.com/hubing/p/3734207.html)
+
+![](./mdImg/lazyload.png)

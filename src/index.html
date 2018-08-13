@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body>
+<body data-imagelazyload="1">
     <!-- 头部部分开始 -->
     <header>
         <div class="mui-input-row mui-search">
@@ -97,11 +97,11 @@
                     </div>
                     <div class="list_content">
                         <ul>
-                            {{each $value.goods $value2}}
+                            {{each $value.goods $value2 $index2}}
                             <li>
                                 <!-- 商品链接 -->
-                                <a href="javascript:;">
-                                    <img src="{{$value2.goods_small_logo}}" alt="">
+                                <a href="/pages/goods_detail.html?goods_id={{$value2.goods_id}}">
+                                    <img class="test-lazyload" src="/img/lazyload.gif" alt="" data-original="{{$value2.goods_small_logo}}">
                                     <p>{{$value2.goods_name}}</p>
                                     <i>￥{{$value2.goods_price}}</i>
                                 </a>
@@ -150,9 +150,10 @@
         </ul>
     </footer>
     <!-- footer部分结束 -->
+    <script src="/lib/zepto/zepto.js"></script>
+    <script src="/lib/lazyload.js"></script>
     <script src="/lib/mui/js/mui.min.js"></script>
     <script src="/lib/arttemplate/template-web.js"></script>
-    <script src="/lib/zepto/zepto.js"></script>
     <script src="/js/common.js"></script>
     <script src="/js/index.js"></script>
 </body>

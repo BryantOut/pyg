@@ -2,9 +2,11 @@ $(function ($) {
     init();
 
     function init() {
+        
         getSwiperdata();
         getCatitems();
         getGoodslist();
+
     }
 
 });
@@ -60,5 +62,17 @@ function getGoodslist() {
         var html = template('tmpl', context);
         //将渲染结果的html设置到默认元素的innerHTML中
         $(".shop_list").html(html);
+        $('.test-lazyload').picLazyLoad({
+            threshold: 100,
+            placeholder: '/img/lazyload.gif'
+        });
+       /*  var imgLength = $(".shop_list img").length;
+        console.log(imgLength);
+        $(".shop_list img").on("load", function () {
+            imgLength--;
+            if (imgLength == 0) {
+                
+            }
+        }); */
     });
 }

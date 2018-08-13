@@ -155,7 +155,7 @@ $(function ($) {
                 //为按钮添加禁用于激活事件
                 $(".getCode").attr("disabled", "disabled");
                 //自定义几秒后重新发送
-                var times = 2;
+                var times = 60;
                 $(".getCode").text(times + "后重新发送");
                 //设置定时器
                 var timeId = setInterval(function () {

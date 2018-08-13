@@ -31,109 +31,101 @@
         <h1 class="mui-title">商品详情</h1>
     </header>
     <!-- 头部部分结束-->
-    <!-- 主体部分开始 -->
     <div class="view">
-        <!-- 轮播图部分开始 -->
-        <div class="mui-slider">
-            <div class="mui-slider-group mui-slider-loop">
-                <!--支持循环，需要重复图片节点-->
-                <div class="mui-slider-item mui-slider-item-duplicate">
-                    <a href="#">
-                        <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_1_400x400.jpg"
-                        />
-                    </a>
-                </div>
-                <div class="mui-slider-item">
-                    <a href="#">
-                        <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_5_400x400.jpg"
-                        />
-                    </a>
-                </div>
-                <div class="mui-slider-item">
-                    <a href="#">
-                        <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_2_400x400.jpg"
-                        />
-                    </a>
-                </div>
-                <div class="mui-slider-item">
-                    <a href="#">
-                        <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_2_400x400.jpg"
-                        />
-                    </a>
-                </div>
-                <div class="mui-slider-item">
-                    <a href="#">
-                        <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_1_400x400.jpg"
-                        />
-                    </a>
-                </div>
-                <!--支持循环，需要重复图片节点-->
-                <div class="mui-slider-item mui-slider-item-duplicate">
-                    <a href="#">
-                        <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070170677-000000000830698025_5_400x400.jpg"
-                        />
-                    </a>
-                </div>
-            </div>
-            <div class="mui-slider-indicator">
-                <div class="mui-indicator mui-active"></div>
-                <div class="mui-indicator"></div>
-                <div class="mui-indicator"></div>
-                <div class="mui-indicator"></div>
-            </div>
-        </div>
-        <!-- 轮播图部分结束 -->
+        <script type="text/x-art-template" id="viewTmpl">
 
-        <div class="goods_name">
-            漫倪芳 2017【优衣库599同款】新款轻薄羽绒服女中长款连帽修身显瘦羽绒服女 冬装女士大码女装保暖羽绒服外套
-        </div>
-        <div class="goods_price">￥299</div>
-        <div class="goods_attr">
-            <ul>
-                <li>
-                    <div class="tag">已选</div>
-                    <div class="tag_value">白色</div>
-                </li>
-                <li>
-                    <div class="tag">已选</div>
-                    <div class="tag_value">白色</div>
-                </li>
-                <li>
-                    <div class="tag">已选</div>
-                    <div class="tag_value">白色</div>
-                </li>
-                <li>
-                    <div class="tag">已选</div>
-                    <div class="tag_value">白色</div>
-                </li>
-            </ul>
-        </div>
-        <div class="info_title">
-            <div id="segmentedControl" class="mui-segmented-control">
-                <a class="mui-control-item mui-active" href="#item1">图文详细</a>
-                <a class="mui-control-item" href="#item2">规格参数</a>
+            <!-- 轮播图部分开始 -->
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="{{comments.pics[comments.pics.length-1].pics_mid_url}}" />
+                        </a>
+                    </div>
+                    {{each comments.pics $value}}
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="{{$value.pics_mid_url}}" />
+                        </a>
+                    </div>
+                    {{/each}}
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="{{comments.pics[0].pics_mid_url}}" />
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator">
+                    {{each comments.pics $value $index}}
+                    {{ if $index==0}}   
+                        <div class="mui-indicator mui-active"></div>
+                    {{/if}}
+                    {{ if $index!=0}}   
+                    <div class="mui-indicator"></div>
+                    {{/if}}
+                    {{/each}}
+                </div>
             </div>
-        </div>
-        <div class="info_content">
-            <div id="item1" class="mui-control-content mui-active">1</div>
-            <div id="item2" class="mui-control-content">
+            <!-- 轮播图部分结束 -->
+
+            <div class="goods_name">
+                {{comments.goods_name}}
+            </div>
+            <div class="goods_price">￥{{comments.goods_price}}</div>
+            <div class="goods_attr">
                 <ul>
                     <li>
-                        <div class="attrs_title">主观参数</div>
-                        <div class="attrs_content">
-                            <div class="tag">品牌</div>
-                            <div class="tag_value">champion</div>
-                        </div>
+                        <div class="tag">已选</div>
+                        <div class="tag_value">白色</div>
+                    </li>
+                    <li>
+                        <div class="tag">已选</div>
+                        <div class="tag_value">白色</div>
+                    </li>
+                    <li>
+                        <div class="tag">已选</div>
+                        <div class="tag_value">白色</div>
+                    </li>
+                    <li>
+                        <div class="tag">已选</div>
+                        <div class="tag_value">白色</div>
                     </li>
                 </ul>
             </div>
+            <div class="info_title">
+                <div id="segmentedControl" class="mui-segmented-control">
+                    <a class="mui-control-item mui-active" href="#item1">图文详细</a>
+                    <a class="mui-control-item" href="#item2">规格参数</a>
+                </div>
+            </div>
+            <div class="info_content">
+                <div id="item1" class="mui-control-content mui-active">
+                    {{@comments.goods_introduce}}
+                </div>
+                <div id="item2" class="mui-control-content">
+                    <ul>
+                        {{each comments.attrs}}
+                        <li>
+                            <div class="attrs_title">{{$value.attr_name.split("-")[0]}}</div>
+                            <div class="attrs_content">
+                                <div class="tag">{{$value.attr_name.split("-")[1]}}</div>
+                                <div class="tag_value">{{$value.attr_value}}</div>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+        </script>
         </div>
         <!-- 主体部分结束 -->
+        <!-- 主体部分开始 -->
         <!-- footer部分开始 -->
         <footer>
             <ul>
                 <li>
-                    <a href="/goods_detail.html">
+                    <a href="/index.html">
                         <span class="fa fa-home"></span>
                         <p>首页</p>
                     </a>

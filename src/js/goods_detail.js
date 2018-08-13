@@ -9,7 +9,7 @@ $(function ($) {
             setHTML();
         }
         getData();    
-        sliderInit();//渲染完毕之后再初始化
+        
 
         eventListener();
     }
@@ -43,9 +43,19 @@ $(function ($) {
 
     function getData() {
         var goods_id = $.getUrlValue("goods_id");  
-        // console.log(goods_id); 
+        
         $.get("goods/detail",{goods_id:goods_id},function (ret) {
-            console.log(ret);
+            console.log(ret); 
+            var data = ret.data;
+            console.log(data);
+
+            //调用模板引擎渲染数据
+            var context = {comments:data}
+            //借助模板引擎的api
+            var html = template('viewTmpl',context);
+            //将渲染结果的html设置到默认元素的innerHTML中
+            $(".view").html(html);
+            sliderInit();//渲染完毕之后再初始化
         }); 
     }
 });

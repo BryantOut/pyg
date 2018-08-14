@@ -94,8 +94,16 @@ $(function ($) {
                         duration: 'short',
                         type: 'div'
                     })
+                    //登录成功，使用本地存储，将用户信息进行存储
+                    localStorage.setItem("userInfo",JSON.stringify(ret.data));
                     setTimeout(function () {
-                        location.href = "/index.html";
+                        //判断会话存储中是否存储了页面链接
+                        var currHref = sessionStorage.getItem("currHref");
+                        if (currHref) {
+                            location.href = currHref;
+                        }else {
+                            location.href = "/index.html";
+                        }
                     },1000);
                 }
             });

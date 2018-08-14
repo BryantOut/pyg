@@ -21,25 +21,20 @@
     <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
     <!-- 引入公共样式 -->
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/good_list.css">
+    <link rel="stylesheet" href="/css/cart.css">
 </head>
 
-<body>
-    <div class="search_header"></div>
-    <div class="sortNav">
-        <a href="javascript:;">综合</a>
-        <a href="javascript:;">销量</a>
-        <a href="javascript:;">促销</a>
-    </div>
-    <!-- view主体部分开始 -->
-    <div class="view">
-        <div>
-            <ul>
+<body data-imagelazyload="1">
+    <!-- 头部部分开始 -->
+    <header>
 
-            </ul>
-        </div>
+    </header>
+    <!-- 头部部分结束-->
+    <!-- 主体部分开始 -->
+    <div class="view">
+
     </div>
-    <!-- view主体部分结束 -->
+    <!-- 主体部分结束 -->
     <!-- footer部分开始 -->
     <footer>
         <ul>
@@ -70,31 +65,12 @@
         </ul>
     </footer>
     <!-- footer部分结束 -->
-
-    <!-- 准备一个模板引擎 -->
-    <script type="text/x-art-template" id="goodListTmpl">
-        {{each comments}}
-        <li>
-            <a href="/pages/goods_detail.html?goods_id={{$value.goods_id}}">
-                <div class="pic">
-                    <img alt="" src="/img/lazyload.gif" data-original="{{$value.goods_small_logo}}" class="test-lazyload">
-                </div>
-                <div class="info">
-                    <div class="good_title">{{$value.goods_name}}</div>
-                    <div class="good_price">￥{{$value.goods_price}}</div>
-                </div>
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-        </li>
-        {{/each}}
-    </script>
-
-    <script src="/lib/mui/js/mui.min.js"></script>
-    <script src="/lib/arttemplate/template-web.js"></script>
     <script src="/lib/zepto/zepto.js"></script>
     <script src="/lib/lazyload.js"></script>
+    <script src="/lib/mui/js/mui.min.js"></script>
+    <script src="/lib/arttemplate/template-web.js"></script>
     <script src="/js/common.js"></script>
-    <script src="/js/good_list.js"></script>
+    <script src="/js/cart.js"></script>
 </body>
 
 </html>

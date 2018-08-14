@@ -33,7 +33,7 @@
     <!-- 头部部分结束-->
     <div class="view">
         <script type="text/x-art-template" id="viewTmpl">
-
+            {{if comments.pics.length!=0}}
             <!-- 轮播图部分开始 -->
             <div class="mui-slider">
                 <div class="mui-slider-group mui-slider-loop">
@@ -68,6 +68,7 @@
                     {{/each}}
                 </div>
             </div>
+            {{/if}}
             <!-- 轮播图部分结束 -->
 
             <div class="goods_name">
@@ -143,7 +144,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <p>加入购物车</p>
+                        <p class="addtoShoppingCart">加入购物车</p>
                     </a>
                 </li>
             </ul>

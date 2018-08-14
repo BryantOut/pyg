@@ -51,6 +51,11 @@ $(function () {
       } else {　　　　
         return false;
       }
+    },
+    checkUserInfo:function () {
+      return localStorage.getItem("userInfo");
     }
   });
+
+
 })

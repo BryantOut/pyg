@@ -1,1 +1,159 @@
-  
+//初始化的时候页面display，确保在未登录状态下，点击进入购物车页面看不到任何东西
+body {
+    display: none;
+}
+
+header {
+    padding: 0 10px;
+    .mui-title {
+        color: #0062cc;
+    }
+    .mui-btn.mui-btn-primary.mui-btn-outlined {
+        top: 4px;
+    }
+    button:nth-child(1) {
+        display: none;
+    }
+}
+
+.view {
+    padding: 0 8px;
+    .address {
+        margin-top: 40px;
+        .add_title {
+            margin-bottom: 4px;
+        }
+        .add_content {
+            display: flex;
+            background-color: #fff;
+            padding: 14px 4px;
+            position: relative;
+            .add_con_left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+            }
+            .add_con_right {
+                flex: 8;
+                .default_add_title {
+                    font-size: 14px;
+                    line-height: 1;
+                }
+                .default_add {
+                    line-height: 1;
+                    color: #666;
+                    font-size: 12px;
+                    margin-top: 4px;
+                }
+            }
+            i {
+                position: absolute;
+                color: #666;
+                right: 14px;
+                top: 20px;
+            }
+        }
+    }
+    .order_form {
+        margin-top: 40px;
+        .of_title {
+            margin-bottom: 4px;
+        }
+        .of_content {
+            display: flex;
+            position: relative;
+            background-color: #fff;
+            padding: 14px 8px;
+            .totalPrice {
+                flex: 1;
+            }
+            .createOrder {
+                flex:1;
+                margin-left: 8px;
+                a {
+                    color: #0062cc;
+                    float: right;
+                    margin-right: 24px;
+                }
+            }
+            i {
+                position: absolute;
+                right: 14px;
+                color: #666;
+            }
+        }
+    }
+    .cart_forms {
+        margin-top: 40px;
+        .cf_title {
+            margin-bottom: 4px;
+        }
+        .cf_content {
+            display: flex;
+            background-color: #fff;
+            padding: 14px 8px;
+            .mui-input-row.mui-checkbox{
+                flex: 1;
+                position: relative;
+                display: none;
+                input {
+                    position: absolute;
+                    top:50%;
+                    left:4px;
+                    margin-top: -13px;
+                }
+            }
+            .pic {
+                flex: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 80%;
+                }
+            }
+            .cf_info {
+                flex: 4;
+                position: relative;
+                .info_name {
+                    font-size: 12px;
+                }
+                .price {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                .mui-numbox {
+                    display: none;
+                    position: absolute;
+                    right:0px;
+                    bottom:-8px;
+                    width: 108px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+
+body.edit {
+    header {
+        button:nth-child(1) {
+            display: block;
+        }
+    }
+    .view {
+        .cart_forms {
+            .cf_content {
+                .mui-input-row.mui-checkbox {
+                    display: block;
+                }
+                .cf_info {
+                    .mui-numbox {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

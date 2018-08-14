@@ -49,7 +49,7 @@ $(function ($) {
         }, function (ret) {
             // console.log(ret);
             var data = ret.data;
-            // console.log(data);
+            console.log(data);
             // console.log("--------");
 
             //调用模板引擎渲染数据
@@ -65,23 +65,24 @@ $(function ($) {
             GoodDataObj = {
                 goods_id: data.goods_id,
                 cat_id: data.cat_id,
-                goods_name: data.cat_id,
-                goods_price: data.cat_id,
-                goods_number: data.cat_id,
-                goods_weight: data.cat_id
+                goods_name: data.goods_name,
+                goods_price: data.goods_price,
+                goods_small_logo: data.goods_small_logo,
+                goods_number: data.goods_number,
+                goods_weight: data.goods_weight
 
             }
-            // console.log(GoodDataObj);
+            console.log(GoodDataObj);
 
         });
     }
 
     function addtoShoppingCart() {
-        
+
         $(".addtoShoppingCart").on("tap", function () {
             var currHref = location.href;
             // console.log("href:"+currHref);
-            sessionStorage.setItem("currHref",currHref);
+            sessionStorage.setItem("currHref", currHref);
 
             //小优化。点击按钮，先判断本地存储中是否存储了"userInfo"，有的话再赋值拿数据，否则回报undefined
             if (!localStorage.getItem("userInfo")) {
@@ -104,7 +105,7 @@ $(function ($) {
 
             //发送请求--购物车添加商品
             //http://api.pyg.ak48.xyz/api/public/v1/my/cart/add
-            
+
             $.ajax({
                 dataType: "json",
                 type: "post",
@@ -133,11 +134,11 @@ $(function ($) {
                             type: 'div'
                         })
                         //弹出框，选择是否跳转到购物车页面
-                        mui.confirm("是否跳转到购物车页面","添加成功",["前往","留下"],function (e) {
-                            if (e.index=1) {
-                                // 不跳转 留在当前页面
-                            } else {
+                        mui.confirm("是否跳转到购物车页面", "添加成功", ["前往", "留下"], function (e) {
+                            if (e.index = 1) {
                                 location.href = "/pages/cart.html";
+                            } else {
+                                // location.href = "/pages/cart.html";
                             }
                         });
                     } else {

@@ -33,9 +33,10 @@ header {
                 justify-content: center;
                 align-items: center;
                 flex: 1;
+                color: red;
             }
             .add_con_right {
-                flex: 8;
+                flex: 6;
                 .default_add_title {
                     font-size: 14px;
                     line-height: 1;
@@ -69,7 +70,7 @@ header {
                 flex: 1;
             }
             .createOrder {
-                flex:1;
+                flex: 1;
                 margin-left: 8px;
                 a {
                     color: #0062cc;
@@ -89,47 +90,55 @@ header {
         .cf_title {
             margin-bottom: 4px;
         }
-        .cf_content {
-            display: flex;
-            background-color: #fff;
-            padding: 14px 8px;
-            .mui-input-row.mui-checkbox{
-                flex: 1;
-                position: relative;
-                display: none;
-                input {
-                    position: absolute;
-                    top:50%;
-                    left:4px;
-                    margin-top: -13px;
-                }
-            }
-            .pic {
-                flex: 2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                img {
-                    width: 80%;
-                }
-            }
-            .cf_info {
-                flex: 4;
-                position: relative;
-                .info_name {
-                    font-size: 12px;
-                }
-                .price {
-                    font-size: 12px;
-                    font-weight: bold;
-                }
-                .mui-numbox {
-                    display: none;
-                    position: absolute;
-                    right:0px;
-                    bottom:-8px;
-                    width: 108px;
-                    height: 24px;
+        ul {
+            li {
+                box-shadow: 1px 3px 4px 2px #ccc;
+                border-radius: 12px;
+                margin-bottom: 8px;
+                overflow: hidden;
+                .cf_content {
+                    overflow: hidden;
+                    display: flex;
+                    background-color: #fff;
+                    padding: 14px 8px;
+                    .mui-input-row.mui-checkbox {
+                        flex: 1;
+                        position: relative;
+                        display: none;
+                        input {
+                            position: absolute;
+                            top: 50%;
+                            left: 4px;
+                            margin-top: -13px;
+                        }
+                    }
+                    .pic {
+                        flex: 2;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img {
+                            width: 80%;
+                        }
+                    }
+                    .cf_info {
+                        flex: 4;
+                        position: relative;
+                        .info_name {
+                            font-size: 12px;
+                        }
+                        .price {
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: red;
+                        }
+                        .mui-numbox {
+                            display: none;
+                            position: absolute;
+                            right: 0px;
+                            bottom: -8px;
+                        }
+                    }
                 }
             }
         }
@@ -145,6 +154,7 @@ body.edit {
     .view {
         .cart_forms {
             .cf_content {
+                overflow: hidden;
                 .mui-input-row.mui-checkbox {
                     display: block;
                 }

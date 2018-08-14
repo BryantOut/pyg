@@ -52,12 +52,13 @@ header button:nth-child(1) {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  color: red;
 }
 
 .view .address .add_content .add_con_right {
-  -webkit-box-flex: 8;
-      -ms-flex: 8;
-          flex: 8;
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
 }
 
 .view .address .add_content .add_con_right .default_add_title {
@@ -129,7 +130,16 @@ header button:nth-child(1) {
   margin-bottom: 4px;
 }
 
-.view .cart_forms .cf_content {
+.view .cart_forms ul li {
+  -webkit-box-shadow: 1px 3px 4px 2px #ccc;
+          box-shadow: 1px 3px 4px 2px #ccc;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.view .cart_forms ul li .cf_content {
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,7 +147,7 @@ header button:nth-child(1) {
   padding: 14px 8px;
 }
 
-.view .cart_forms .cf_content .mui-input-row.mui-checkbox {
+.view .cart_forms ul li .cf_content .mui-input-row.mui-checkbox {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -145,14 +155,14 @@ header button:nth-child(1) {
   display: none;
 }
 
-.view .cart_forms .cf_content .mui-input-row.mui-checkbox input {
+.view .cart_forms ul li .cf_content .mui-input-row.mui-checkbox input {
   position: absolute;
   top: 50%;
   left: 4px;
   margin-top: -13px;
 }
 
-.view .cart_forms .cf_content .pic {
+.view .cart_forms ul li .cf_content .pic {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
@@ -167,37 +177,40 @@ header button:nth-child(1) {
           align-items: center;
 }
 
-.view .cart_forms .cf_content .pic img {
+.view .cart_forms ul li .cf_content .pic img {
   width: 80%;
 }
 
-.view .cart_forms .cf_content .cf_info {
+.view .cart_forms ul li .cf_content .cf_info {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
   position: relative;
 }
 
-.view .cart_forms .cf_content .cf_info .info_name {
+.view .cart_forms ul li .cf_content .cf_info .info_name {
   font-size: 12px;
 }
 
-.view .cart_forms .cf_content .cf_info .price {
-  font-size: 12px;
+.view .cart_forms ul li .cf_content .cf_info .price {
+  font-size: 14px;
   font-weight: bold;
+  color: red;
 }
 
-.view .cart_forms .cf_content .cf_info .mui-numbox {
+.view .cart_forms ul li .cf_content .cf_info .mui-numbox {
   display: none;
   position: absolute;
   right: 0px;
   bottom: -8px;
-  width: 108px;
-  height: 24px;
 }
 
 body.edit header button:nth-child(1) {
   display: block;
+}
+
+body.edit .view .cart_forms .cf_content {
+  overflow: hidden;
 }
 
 body.edit .view .cart_forms .cf_content .mui-input-row.mui-checkbox {

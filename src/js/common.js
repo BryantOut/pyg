@@ -54,6 +54,17 @@ $(function () {
     },
     checkUserInfo:function () {
       return localStorage.getItem("userInfo");
+    },
+    getToken:function () {
+      if (!localStorage.getItem("userInfo")) {
+        console.log("未登录");
+        token = "";
+      }else {
+        var userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        var token = userInfo.token;
+        // console.log(userInfo.token);
+      }
+      return token;
     }
   });
 

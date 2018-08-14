@@ -32,6 +32,7 @@
         <button type="button" id="edit_btn" class="mui-btn mui-btn-primary mui-btn-outlined mui-pull-right">编辑</button>
     </header>
     <!-- 头部部分结束-->
+
     <!-- 主体部分开始 -->
     <div class="view">
         <!-- 配送地址部分开始 -->
@@ -70,35 +71,51 @@
         </div>
         <!-- 订单部分结束 -->
 
+
+
         <!-- 购物车商品部分开始 -->
         <div class="cart_forms">
             <div class="cf_title">购物车</div>
+            <ul>
+
+            </ul>
+        </div>
+        <!-- 购物车商品部分结束 -->
+
+    </div>
+    <!-- 主体部分结束 -->
+
+    <!-- 准备模板开始 -->
+    <script type="text/template" id="tmpl">
+        {{each comments}}
+        <li>
             <div class="cf_content">
                 <div class="mui-input-row mui-checkbox">
                     <input name="checkbox1" value="Item 1" type="checkbox" checked>
                 </div>
                 <div class="pic">
-                    <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0070177075-000000000826129354_1_400x400.jpg" alt="">
+                    <img src="{{$value.goods_small_logo}}" alt="">
                 </div>
                 <div class="cf_info">
                     <div class="info_name">
-                        派色PAISE智能运动手环触屏心率监测运动计步器苹果安卓IOS蓝牙防水手环
+                        {{$value.goods_name}}
                     </div>
                     <div class="price">
                         ￥
-                        <span>169</span>
+                        <span>{{$value.goods_price}}</span>
                     </div>
-                    <div class="mui-numbox" data-numbox-step='10' data-numbox-min='0' data-numbox-max='100'>
+                    <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{$value.goods_number}}'>
                         <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-                        <input class="mui-numbox-input" type="number" />
+                        <input class="mui-numbox-input" type="number" value="{{$value.amount}}"/>
                         <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- 购物车商品部分结束 -->
-    </div>
-    <!-- 主体部分结束 -->
+        </li>
+        {{/each}}
+    </script>
+    <!-- 准备模板结束 -->
+
     <!-- footer部分开始 -->
     <footer>
         <ul>
@@ -115,7 +132,7 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="/pages/category.html">
                     <span class="fa fa-shopping-cart"></span>
                     <p>购物车</p>
                 </a>

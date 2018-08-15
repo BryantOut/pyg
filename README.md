@@ -10,6 +10,9 @@
 
 **重点技术**
 
+- [5.9  h5自定义属性]()
+
+
 - [4.1  mui轮播图](#41--mui轮播图)
 - [4.2  代码优化之--拦截器](#42--代码优化之--拦截器)
 - [4.7  根据url上的key来取值](#47--根据url上的key来取值)
@@ -407,3 +410,30 @@ $(".getCode").on("tap", function () {
 [文档链接](https://www.cnblogs.com/hubing/p/3734207.html)
 
 ![](./mdImg/lazyload.png)
+
+### 5.9  h5自定义属性
+
+#### 5.9.1  描述
+
+- h5推荐在便签中定义属性data-***     `<div data-color='red'></div>`
+- 当按照以上方式定义属性时，在JS中，我们可以这样来获取自定义属性的值，如
+
+#### 5.9.2  使用
+
+1. **定义属性 data-***
+
+```html
+<li data-retdata="{{$value}}">
+```
+
+2. **获取属性值dom.dataset**
+
+```js
+var retData = $(lists[i]).data("retdata");
+//每一项的单价
+var price = retData.goods_price;
+```
+
+#### 5.9.3  注意
+
+注意其中运用到的方法是`jquery`的

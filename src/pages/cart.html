@@ -87,8 +87,8 @@
 
     <!-- 准备模板开始 -->
     <script type="text/template" id="tmpl">
-        {{each comments}}
-        <li>
+        {{each comments $value}}
+        <li data-retdata="{{$value}}">
             <div class="cf_content">
                 <div class="mui-input-row mui-checkbox">
                     <input name="checkbox1" value="Item 1" type="checkbox" checked>

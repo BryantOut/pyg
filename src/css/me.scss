@@ -1,0 +1,66 @@
+body {
+    display: none;
+}
+
+header {
+    padding: 0 10px;
+    .mui-title {
+        color: #0062cc;
+    }
+}
+
+.view {
+    padding: 8px;
+    .userInfoBox {
+        display: flex;
+        background-color: #fff;
+        padding: 12px;
+        margin-top: 20px;
+        .pic {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .userInfo {
+            flex: 4;
+        }
+    }
+    .orderManage {
+        margin-top: 20px;
+        background-color: #fff;
+        .title {
+            border-bottom: 1px solid #ccc;
+            padding: 8px;
+        }
+        .or_content {
+            display: flex;
+            >div {
+                flex: 1;
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 8px 0;
+                    p {
+                        color: #007aff;
+                    }
+                }
+            }
+        }
+    }
+    .selfInfo {
+        margin-top: 20px;
+    }
+    .aboutApp {
+        margin-top: 20px;
+    }
+    .outLogin {
+        margin-top: 20px;
+        background: rgb(221, 82, 77);
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+    }
+}

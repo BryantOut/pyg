@@ -31,8 +31,37 @@ $(function ($) {
             $("body").toggleClass("edit");
             if ($(this).text() == "编辑") {
                 $(this).text("完成");
+                console.log("触发编辑按钮");
+
             } else {
                 $(this).text("编辑");
+                console.log("触发完成按钮");
+                //先获取所有商品的li
+                var goodsList = $(".cart_forms li");
+                // console.log(goodsList);
+                //如果没有任何一个商品,提醒用户
+                if (goodsList.length == 0) {
+                    mui.toast('你还没有选择宝贝哦', {
+                        duration: 'short',
+                        type: 'div'
+                    })
+                    return;
+                }
+                //准备一个需要发送到后台的infos对象
+                var infos = {};
+                for (var i = 0; i < goodsList.length; i++) {
+                    //获取每个li的自定义属性data
+                    var retdata = $(goodsList[i]).data("retdata");
+                    // console.log(retdata);
+                    //获取每一项商品的goods_id
+                    var goods_id = retdata.goods_id;
+                    //获取当前的amount，并赋值给对象
+                    retdata.amount = $(".mui-numbox-input").val();
+                    // console.log(goods_id);
+                    infos[goods_id] = retdata;
+                }
+                //同步购物车
+                updateData(infos);
             }
         });
 
@@ -57,7 +86,7 @@ $(function ($) {
 
             //弹出对话框，查询用户是否确认删除
             mui.confirm("是否确定删除该宝贝", "删除提示", ["确定", "取消"], function (e) {
-                if (e.index = 0) {
+                if (e.index == 0) {
                     //3、同步购物车
                     //3.1、获取未被勾选的复选框的父元素li的数组集合
                     var currGoodsList = $(".cf_content [type='checkbox']").not(":checked").parents("li");
@@ -71,28 +100,59 @@ $(function ($) {
                         infos[goods_id] = obj;
                     }
                     //3.3、发送ajax请求，同步购物车
-                    $.ajax({
-                        dataType: "json",
-                        type: "post",
-                        headers: {
-                            "Authorization": $.getToken()
-                        },
-                        data: {
-                            infos: JSON.stringify(infos)
-                        },
-                        url: "my/cart/sync",
-                        success: function (ret) {
-                            console.log(ret);
-                            //重新渲染页面
-                            getData();
-                        }
-                    });
+                    updateData(infos);
+                    console.log("删除事件完成");
                 } else {
+                    console.log("删除事件失败");
                     return;
                 }
             });
 
 
+        });
+
+        //为生成订单按钮注册点击事件
+        $(".createOrder").on("tap", function () {
+            //假如购物车中没有一个商品。则不往下执行
+            var goodsList = $(".cart_forms li");
+            if (goodsList.length == 0) {
+                mui.toast("你的购物车中还没有宝贝哦", {
+                    duration: 'short',
+                    type: 'div'
+                });
+                return;
+            }
+            console.log("触发生成订单按钮");
+            //获取所有商品中价格
+            var order_price = $(".order_form .totalPrice>span").text();
+            // console.log(amount);
+            //当前自定义收获地址
+            var consignee_addr = "广东省潮州市湘桥区新乡新名巷15号501";
+            //先自定义一个空的数组，用于存储商品列表中的数据
+            var goods = [];
+             //循环遍历购物车中每一项商品，获取每一项li中的自定义属性存储的值
+            for (var i = 0; i < goodsList.length; i++) {
+                var retdata = $(goodsList[i]).data("retdata");
+                // console.log(retdata);
+                //先定义一个空对象
+                var obj = {};
+                obj.goods_id = retdata.goods_id;
+                obj.goods_price = retdata.goods_price;
+                //获取当前amount
+                var amount = $(goodsList[i]).find(".mui-numbox-input").val();
+                obj.goods_number = amount;
+
+                goods.push(obj);
+            }
+
+            var data = {
+                order_price:order_price,
+                order_price:order_price,
+                goods:goods
+            }
+
+            //执行封装的方法，生成订单 
+            generateOrder(data);           
         });
     }
 
@@ -107,7 +167,7 @@ $(function ($) {
             },
             url: "my/cart/all",
             success: function (ret) {
-                console.log(ret);
+                // console.log(ret);
                 if (ret.meta.status == 200) {
                     //判断是否有商品，没有的话不用继续往下执行
                     if (ret.data.cart_info) {
@@ -161,7 +221,6 @@ $(function ($) {
             var amount = $(lists[i]).find(".mui-numbox-input").val();
             totalPrice += price * amount;
         }
-        console.log(totalPrice);
         //为总价赋值
         $(".order_form .totalPrice>span").text(totalPrice);
     }
@@ -179,5 +238,57 @@ $(function ($) {
         // 设置到html标签的中
         document.querySelector("html").style.fontSize = fontsize + "px";
 
+    }
+
+    //封装同步数据代码块
+    function updateData(infos) {
+        $.ajax({
+            dataType: "json",
+            type: "post",
+            headers: {
+                "Authorization": $.getToken()
+            },
+            data: {
+                infos: JSON.stringify(infos)
+            },
+            url: "my/cart/sync",
+            success: function (ret) {
+                console.log(ret);
+                //重新渲染页面
+                getData();
+            }
+        });
+    }
+
+    //生成订单按钮
+    function generateOrder(data) {
+        $.ajax({
+            dataType:"json",
+            type:"post",
+            data:data,
+            headers: {
+                "Authorization": $.getToken()
+            },
+            url:"my/orders/create",
+            success:function(ret){
+                var msg = ret.meta.msg;
+                var status = ret.meta.status;
+                if (status == 200) {
+                    mui.toast(msg, {
+                        duration: 'short',
+                        type: 'div'
+                    })
+                    setTimeout(function(){
+                        location.href = "/pages/orders.html";
+                    },1000);
+                } else {
+                    mui.toast(msg, {
+                        duration: 'short',
+                        type: 'div'
+                    });
+                    return;
+                }
+            }
+        });
     }
 });

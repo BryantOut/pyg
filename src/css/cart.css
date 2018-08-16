@@ -201,8 +201,9 @@ header button:nth-child(1) {
 .view .cart_forms ul li .cf_content .cf_info .mui-numbox {
   display: none;
   position: absolute;
-  right: 0px;
-  bottom: -8px;
+  right: -7px;
+  bottom: -2px;
+  height: 34%;
 }
 
 body.edit header button:nth-child(1) {

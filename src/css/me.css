@@ -1,0 +1,103 @@
+body {
+  display: none;
+}
+
+header {
+  padding: 0 10px;
+}
+
+header .mui-title {
+  color: #0062cc;
+}
+
+.view {
+  padding: 8px;
+}
+
+.view .userInfoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  padding: 12px;
+  margin-top: 20px;
+}
+
+.view .userInfoBox .pic {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.view .userInfoBox .userInfo {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+
+.view .orderManage {
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.view .orderManage .title {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.view .orderManage .or_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.view .orderManage .or_content > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.view .orderManage .or_content > div a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 0;
+}
+
+.view .orderManage .or_content > div a p {
+  color: #007aff;
+}
+
+.view .selfInfo {
+  margin-top: 20px;
+}
+
+.view .aboutApp {
+  margin-top: 20px;
+}
+
+.view .outLogin {
+  margin-top: 20px;
+  background: #dd524d;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+}
+/*# sourceMappingURL=me.css.map */

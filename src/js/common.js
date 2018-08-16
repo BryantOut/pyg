@@ -31,11 +31,11 @@ $(function () {
 
   // 拓展zepto-> 给$对象添加自定义的属性或者方法 
   $.extend($, {
-    getUrlValue:function (name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return decodeURI(r[2]);
-        return null;
+    getUrlValue: function (name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return decodeURI(r[2]);
+      return null;
     },
     checkPhone: function (phone) {
       if (!(/^1[34578]\d{9}$/.test(phone))) {
@@ -52,19 +52,27 @@ $(function () {
         return false;
       }
     },
-    checkUserInfo:function () {
+    checkUserInfo: function () {
       return localStorage.getItem("userInfo");
     },
-    getToken:function () {
+    getToken: function () {
       if (!localStorage.getItem("userInfo")) {
         console.log("未登录");
         token = "";
-      }else {
+      } else {
         var userInfo = JSON.parse(localStorage.getItem("userInfo"));
         var token = userInfo.token;
         // console.log(userInfo.token);
       }
       return token;
+    },
+    setCurrHref: function () {
+      var currHref = location.href;
+      // console.log("href:"+currHref);
+      sessionStorage.setItem("currHref", currHref);
+    },
+    getPreHref:function () {
+      return sessionStorage.getItem("currHref");
     }
   });
 })

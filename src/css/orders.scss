@@ -1,0 +1,27 @@
+header {
+    padding: 0 10px;
+    .mui-title {
+        color: #0062cc;
+    }
+} 
+.view {
+    padding: 8px;
+    #item1 {
+        ul {
+            margin-top: 20px;
+            li {
+                padding: 8px;
+                background-color: #fff;
+                display: flex;
+                border-bottom: 1px dashed #ccc;
+                .orderIdBox {
+                    flex:5;
+                }
+                .orderPrice {
+                    flex:2;
+                    color: red;
+                }
+            }
+        }
+    }
+}

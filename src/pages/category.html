@@ -27,22 +27,19 @@
             <ul>
                 <!-- 准备一个模板引擎 -->
                 <script type="text/x-art-template" id="leftNavTmpl">
-                    {{each comments}}
-                    {{if $index==0}}
+                    {{each comments}} {{if $index==0}}
                     <li data-index={{$index}} class="active">
                         <a href="javascript:;">
                             {{$value.cat_name}}
                         </a>
                     </li>
-                    {{/if}}
-                    {{if $index!=0}}
+                    {{/if}} {{if $index!=0}}
                     <li data-index={{$index}}>
                         <a href="javascript:;">
                             {{$value.cat_name}}
                         </a>
                     </li>
-                    {{/if}}
-                    {{/each}}
+                    {{/if}} {{/each}}
                 </script>
             </ul>
         </div>
@@ -89,15 +86,15 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="/pages/cart.html">
                     <span class="fa fa-shopping-cart"></span>
-                    <p>首页</p>
+                    <p>购物车</p>
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="/pages/me.html">
                     <span class="fa fa-user"></span>
-                    <p>首页</p>
+                    <p>我的</p>
                 </a>
             </li>
         </ul>

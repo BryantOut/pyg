@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- ./  相对路径
+    /   绝对路径
+    以后我们的网站，都是通过服务器来打开
+    网页，写了根路径
+    1、服务器形式代开 正确
+        a vscode  自带服务器
+        b 结合phpstudy 来使用
+    2、双击打开html页面 错误 => 根路径就定位了 c:
+    3、通过接口去返回一些数据
+        /1.jpg
+        ./1.jpg -->
+    <link rel="stylesheet" href="/lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
+    <!-- 引入公共样式 -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/me.css">
+</head>
+
+<body>
+    <!-- 头部部分开始 -->
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">个人中心</h1>
+    </header>
+    <!-- 头部部分结束-->
+
+    <!-- 主体部分开始 -->
+    <div class="view">
+        <div class="userInfoBox">
+            <div class="pic">
+                <span class="mui-icon mui-icon-contact mui-media-object mui-pull-left"></span>
+            </div>
+            <div class="userInfo">
+
+            </div>
+        </div>
+
+        <div class="orderManage">
+            <div class="title">
+                订单管理
+            </div>
+            <div class="or_content">
+                <div class="icon1">
+                    <a href="/pages/orders.html">
+                        <i class="fa fa-cc-discover" aria-hidden="true"></i>
+                        <p>待付款</p>
+                    </a>
+                </div>
+                <div class="icon2">
+                    <a href="/pages/orders.html">
+                        <i class="fa fa-cc-discover" aria-hidden="true"></i>
+                        <p>待付款</p>
+                    </a>
+                </div>
+                <div class="icon3">
+                    <a href="/pages/orders.html">
+                        <i class="fa fa-cc-discover" aria-hidden="true"></i>
+                        <p>待付款</p>
+                    </a>
+                </div>
+                <div class="icon4">
+                    <a href="/pages/orders.html">
+                        <i class="fa fa-cc-discover" aria-hidden="true"></i>
+                        <p>待付款</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="selfInfo">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right">
+                        修改登录密码
+                    </a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right">
+                        支付密码管理
+                    </a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right">
+                        收货地址管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="aboutApp">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <a class="pull-left">
+                        联系客服
+                    </a>
+                    <p class="pull-right">
+                        4000-xxx-xxx-xxx
+                    </p>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right">
+                        意见反馈
+                    </a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right">
+                        关于我们
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 退出登录部分开始 -->
+        <div class="outLogin">
+            退出登录
+        </div>
+        <!-- 退出登录部分结束 -->
+    </div>
+    <!-- 主体部分结束 -->
+
+    <!-- 准备一个模板引擎 -->
+    <script type="text/template" id="tmpl">
+        <div class="phone">{{comments.username}}</div>
+        <div class="mail">{{comments.user_email}}</div>
+    </script>
+
+    <!-- footer部分开始 -->
+    <footer>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <span class="fa fa-home"></span>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="/pages/category.html">
+                    <span class="fa fa-list-ul"></span>
+                    <p>分类</p>
+                </a>
+            </li>
+            <li>
+                <a href="/pages/cart.html">
+                    <span class="fa fa-shopping-cart"></span>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="/pages/me.html">
+                    <span class="fa fa-user"></span>
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <!-- footer部分结束 -->
+    <script src="/lib/zepto/zepto.js"></script>
+    <script src="/lib/mui/js/mui.min.js"></script>
+    <script src="/lib/arttemplate/template-web.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/me.js"></script>
+</body>
+
+</html>

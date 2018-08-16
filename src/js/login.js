@@ -98,7 +98,7 @@ $(function ($) {
                     localStorage.setItem("userInfo",JSON.stringify(ret.data));
                     setTimeout(function () {
                         //判断会话存储中是否存储了页面链接
-                        var currHref = sessionStorage.getItem("currHref");
+                        var currHref = $.getPreHref();
                         if (currHref) {
                             location.href = currHref;
                         }else {

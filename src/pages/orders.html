@@ -21,55 +21,67 @@
     <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
     <!-- 引入公共样式 -->
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/orders.css">
 </head>
 
 <body>
     <!-- 头部部分开始 -->
-    <header class="mui-bar mui-bar-nav">
+    <header id="header" class="mui-bar mui-bar-nav">
         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-        <h1 class="mui-title">注册</h1>
+        <h1 class="mui-title">订单</h1>
     </header>
     <!-- 头部部分结束-->
+
+
     <!-- 主体部分开始 -->
     <div class="view">
-        <form class="mui-input-group">
-            <div class="mui-input-row">
-                <label>手机号码</label>
-                <input type="text" class="mui-input-clear" placeholder="请输入手机号码" name="mobile" value="13533223834">
-            </div>
-            <div class="mui-input-row code">
-                <label>验证码</label>
-                <input type="text" class="mui-input-clear" placeholder="请输入验证码" name="code">
-                <button type="button" class="mui-btn mui-btn-primary getCode">获取验证码</button>
-            </div>
-            <div class="mui-input-row">
-                <label>邮箱</label>
-                <input type="text" class="mui-input-clear" placeholder="请输入邮箱" name="email">
-            </div>
-            <div class="mui-input-row">
-                <label>密码</label>
-                <input type="password" class="mui-input-password" placeholder="请输入密码" name="pwd">
-            </div>
-            <div class="mui-input-row">
-                <label>确认密码</label>
-                <input type="password" class="mui-input-password" placeholder="请再次输入一次密码" name="pwdAgain">
-            </div>
-            <div class="mui-input-row mui-radio">
-                <label>男</label>
-                <input type="radio" value="男" name="gender">
-            </div>
-            <div class="mui-input-row mui-radio">
-                <label>女</label>
-                <input type="radio" checked value="女" name="gender">
-            </div>
-        </form>
-        <div class="btn_tool">
-            <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button>
-            <button type="button" class="mui-btn mui-btn-primary btn_register">注册</button>
+        <!-- 顶部导航栏部分开始 -->
+        <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+            <a class="mui-control-item mui-active" href="#item1">
+                全部
+            </a>
+            <a class="mui-control-item" href="#item2">
+                待付款
+            </a>
+            <a class="mui-control-item" href="#item3">
+                代发货
+            </a>
         </div>
+        <!-- 顶部导航栏部分结束 -->
+        <!-- 与导航栏对应的主体部分开始 -->
+        <div>
+            <div id="item1" class="mui-control-content mui-active">
+                <!-- 订单内容部分开始 -->
+                <ul>
+
+                </ul>
+                <!-- 订单内容部分结束 -->
+            </div>
+            <div id="item2" class="mui-control-content">
+                待开发……
+            </div>
+            <div id="item3" class="mui-control-content">
+                待开发……
+            </div>
+        </div>
+        <!-- 与导航栏对应的主体部分结束 -->
     </div>
     <!-- 主体部分结束 -->
+
+    <!-- 准备模板部分开始 -->
+    <script type="text/template" id="tmpl">
+        {{each comments $value}}
+        <li>
+            <div class="orderIdBox">
+                <div class="title">订单编号</div>
+                <p class="orderId mui-ellipsis">{{$value.order_number}}</p>
+            </div>
+            <div class="orderPrice">￥{{$value.order_price}}</div>
+        </li>
+        {{/each}}
+    </script>
+    <!-- 准备模板部分结束 -->
+
     <!-- footer部分开始 -->
     <footer>
         <ul>
@@ -100,11 +112,11 @@
         </ul>
     </footer>
     <!-- footer部分结束 -->
+    <script src="/lib/zepto/zepto.js"></script>
     <script src="/lib/mui/js/mui.min.js"></script>
     <script src="/lib/arttemplate/template-web.js"></script>
-    <script src="/lib/zepto/zepto.js"></script>
     <script src="/js/common.js"></script>
-    <script src="/js/register.js"></script>
+    <script src="/js/orders.js"></script>
 </body>
 
 </html>

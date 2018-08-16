@@ -27,7 +27,7 @@
 <body data-imagelazyload="1">
     <!-- 头部部分开始 -->
     <header class="mui-bar mui-bar-nav">
-        <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-pull-left">删除</button>
+        <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-pull-left" id="del_btn">删除</button>
         <h1 class="mui-title">购物车</h1>
         <button type="button" id="edit_btn" class="mui-btn mui-btn-primary mui-btn-outlined mui-pull-right">编辑</button>
     </header>
@@ -91,7 +91,7 @@
         <li data-retdata="{{$value}}">
             <div class="cf_content">
                 <div class="mui-input-row mui-checkbox">
-                    <input name="checkbox1" value="Item 1" type="checkbox" checked>
+                    <input name="checkbox" value="Item 1" type="checkbox">
                 </div>
                 <div class="pic">
                     <img src="{{$value.goods_small_logo}}" alt="">
